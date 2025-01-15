@@ -19,14 +19,15 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center; 
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
 #app {
   /* max-width: 50vw; */
-  width: 30vw;
+  width: 350px;
+ 
   margin: 0 auto;
   padding: 2rem;
 }

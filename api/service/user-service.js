@@ -1,6 +1,6 @@
 const {knex} = require('../../database/connection')
 const getProfileById =  (id) => {
-	return knex('users').select().where('id', id)
+	return knex('users').select().where('id', id).first()
 }
 
 const saveProfile =  (profile) => {

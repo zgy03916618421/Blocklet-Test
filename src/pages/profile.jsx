@@ -29,6 +29,7 @@ const formSchema = z.object({
 const Profile = () => {
 	const [edit, setEdit] = useState(false)
 	const [laoding, setLoading] = useState(false)
+	const [profile, setProfile] = useState({})
 	const { toast } = useToast()
 
 	// api for saving
@@ -37,26 +38,41 @@ const Profile = () => {
 		return data
 	}
 
-	// if the state becomes editable, forcus first field of form, when dom renders end. 
+	// api for getting profile. It's hard code, so keep this function simple.
+	async function getProfile() {
+		const {data} = await api.get('/api/profile/1')
+		return data.data
+	}
+
+	const setFormValues = (data) => {
+			form.setValue('username', data.username)
+			form.setValue('email', data.email)
+			form.setValue('mobile', data.mobile)
+
+	}
+
+	// get user profile when page has loaded
+	useEffect(() => {
+		getProfile().then((data) => {
+			setProfile(data)
+			setFormValues(data)
+		})
+	}, [])
+
+	// if the state becomes editable, focus first field of form, when dom renders end. 
 	useEffect(() => {
 		if (edit) {
 			form.setFocus('username')
 		}
 	}, [edit])
 
-	// set default value in order to simulate user logging in.
 	const form = useForm({
 		resolver: zodResolver(formSchema),
-		defaultValues: {
-			username: 'test',
-			email: 'test@gmail.com',
-			mobile: '12345678901',
-		},
 	});
 
 	const onSubmit = (values) => {
 		setLoading(true)
-		saveProfile(values).then((data) => {
+		saveProfile({...values, id: "1"}).then((data) => {
 			setLoading(false)
 			if (data.code !== 200) {
 				toast({
@@ -66,6 +82,7 @@ const Profile = () => {
 				})
 
 			} else {
+				setProfile({...values, id: "1	"})
 				toast({
 					title: "Request Success",
 					description: data.message,
@@ -79,6 +96,7 @@ const Profile = () => {
 	}
 
 	function onCancle() {
+		setFormValues(profile)
 		setEdit(false)
 	}
 	return (
@@ -90,7 +108,7 @@ const Profile = () => {
 						name="username"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Username</FormLabel>
+								<FormLabel className="sm: text-sm">Username</FormLabel>
 								<FormControl>
 									<Input placeholder="name" {...field} disabled={!edit} />
 								</FormControl>
