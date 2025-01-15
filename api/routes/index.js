@@ -1,8 +1,9 @@
 const middlewares = require('@blocklet/sdk/lib/middlewares');
 const router = require('express').Router();
-const userController = require('../controller/user-controller')
+const {getProfileByIdController, saveProfileController} = require('../controller/user-controller')
 const {checkSaveProfile} = require('../schema-check')
 
-router.post('/profile/save',checkSaveProfile,userController.saveProfile)
+router.get('/profile/:id', getProfileByIdController)
+router.post('/profile/save',checkSaveProfile,saveProfileController)
 
 module.exports = router;

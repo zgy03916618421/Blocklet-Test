@@ -57,8 +57,10 @@
     "express": "^4.21.0",
     "express-async-errors": "^3.1.1",
     "express-validator": "^7.2.1",
+    "knex": "^3.1.0",
     "lucide-react": "^0.471.1",
     "react-hook-form": "^7.54.2",
+    "sqlite3": "^5.1.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"
