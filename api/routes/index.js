@@ -1,14 +1,8 @@
 const middlewares = require('@blocklet/sdk/lib/middlewares');
 const router = require('express').Router();
 const userController = require('../controller/user-controller')
+const {checkSaveProfile} = require('../schema-check')
 
-router.use('/user', middlewares.session(), (req, res) => res.json(req.user || {}));
-
-router.use('/data', (req, res) =>
-  res.json({
-    message: 'Hello Blocklet!',
-  }),
-);
-router.post('/profile/save', userController.saveProfile)
+router.post('/profile/save',checkSaveProfile,userController.saveProfile)
 
 module.exports = router;
