@@ -9,7 +9,6 @@ router.use('/data', (req, res) =>
     message: 'Hello Blocklet!',
   }),
 );
-
 router.post('/profile/save', userController.saveProfile)
 
 module.exports = router;
