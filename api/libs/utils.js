@@ -1,3 +1,3 @@
-const formatErrMsg = (errors) => errors.map((e) => `${e.path}: ${e.msg}`)
+const formatErrMsg = (errors) => errors.map((e) => `${e.path}: ${e.msg}`);
 
-exports.formatErrMsg = formatErrMsg
+exports.formatErrMsg = formatErrMsg;

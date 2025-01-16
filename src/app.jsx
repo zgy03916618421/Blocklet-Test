@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import Profile from './pages/profile'
+import Profile from './pages/profile';
 
 function App() {
   return (
