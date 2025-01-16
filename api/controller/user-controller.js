@@ -20,7 +20,7 @@ const getProfileByIdController = async (req, res) => {
 	} catch (err) {
 		res.json({
 			code: 5001,
-			message: ERROR.InternalErr,
+			message: err.toString(),
 		})
 		// use logger which is compatible with log system(if we introduce a log system, we can easily hanle this)
 		logger.error(err)

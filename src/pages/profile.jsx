@@ -108,11 +108,11 @@ const Profile = () => {
 						name="username"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="sm: text-sm">Username</FormLabel>
+								<FormLabel className="text-xs sm:text-sm">Username</FormLabel>
 								<FormControl>
-									<Input placeholder="name" {...field} disabled={!edit} />
+									<Input className="text-xs sm:text-sm" placeholder="name" {...field} disabled={!edit} />
 								</FormControl>
-								<FormDescription>
+								<FormDescription className="text-[0.7rem] sm:text-[0.8rem]">
 									This is your name. At least 2 characters.
 								</FormDescription>
 								<FormMessage />
@@ -124,11 +124,11 @@ const Profile = () => {
 						name="email"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel className="text-xs sm:text-sm">Email</FormLabel>
 								<FormControl>
-									<Input placeholder="This is your Email." {...field} disabled={!edit} />
+									<Input className="text-xs sm:text-sm" placeholder="This is your Email." {...field} disabled={!edit} />
 								</FormControl>
-								<FormDescription>
+								<FormDescription className="text-[0.7rem] sm:text-[0.8rem]">
 									Enter your email like xxxx@yyy
 								</FormDescription>
 								<FormMessage />
@@ -140,12 +140,12 @@ const Profile = () => {
 						name="mobile"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Mobile</FormLabel>
+								<FormLabel className="text-xs sm:text-sm">Mobile</FormLabel>
 								<FormControl>
-									<Input placeholder="This is your mobile number." {...field} disabled={!edit} />
+									<Input className="text-xs sm:text-sm" placeholder="This is your mobile number." {...field} disabled={!edit} />
 								</FormControl>
 								<FormMessage />
-								<FormDescription>
+								<FormDescription className="text-[0.7rem] sm:text-[0.8rem]">
 									Only supports mobile phone numbers in China
 								</FormDescription>
 							</FormItem>

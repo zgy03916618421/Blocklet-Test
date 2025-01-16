@@ -1,4 +1,4 @@
-const {knex} = require('../../database/connection')
+const {knex} = require('../database/connection')
 const getProfileById =  (id) => {
 	return knex('users').select().where('id', id).first()
 }

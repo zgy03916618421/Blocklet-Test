@@ -1,5 +1,5 @@
-const file = __dirname +  process.env.DATABASE_NAME
-console.log("file", file)
+const path = require('path')
+const file = path.join(__dirname, '/users')
 
 const knex = require('knex')({
 	client: 'sqlite3',
